@@ -418,7 +418,7 @@ a {color: $white; text-decoration: none!important;}
 .header {height: 100px; background-color: transparent;
    z-index: 20000; transition: 500ms}
 .header-slick {height: 60px; background-color: $wear-black; position: fixed;
-  width: 100%; z-index: 20000; transition: 500ms}
+  width: 100%; z-index: 20000; transition: 500ms; top: 0}
 .nav-link { color: $white;}
 .nav-link:hover {color: $white;}
 .phone {font-size: 0.95em; letter-spacing: 0.07em; color: $white; font-weight: 700}
