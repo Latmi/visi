@@ -334,7 +334,8 @@ a {
   position: fixed;
   width: 100%;
   z-index: 20000;
-  transition: 500ms; }
+  transition: 500ms;
+  top: 0; }
 
 .nav-link {
   color: #ffffff; }
