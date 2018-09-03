@@ -15,25 +15,30 @@
 }
 @mixin box-shadow {
 	-webkit-box-shadow: 0 15px 10px -10px rgba(0,0,0,0.5),0 1px 0 rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 15px 10px -10px rgba(0,0,0,0.5),0 1px 0 rgba(0,0,0,0.3);
     box-shadow: 0 15px 10px -10px rgba(0,0,0,0.3),0 1px 0 rgba(0,0,0,0.1);
 }
 
 
 //COLORS
-$vk: #4a76a8;
-$facebook: #375089;
-$youtube: #dc4e41;
-$instagram: #ae3d9d;
+//$vk: #4a76a8;
+//$facebook: #375089;
+//$youtube: #dc4e41;
+//$instagram: #ae3d9d;
+$vk: #2E2981;
+$facebook: #2E2981;
+$youtube: #2E2981;
+$instagram: #2E2981;
 $grey: #666666;
 $white: #ffffff;
 $wear: #f5ca99;
 $grey-light: #f4f6f9;
+$grey-medium: #c0c0c0;
 $grey-black: #393a3c;
 $black: #202020;
-$hover-color: #be996e;
+$hover-color: #2E2981;
 $wear-light: #f8f5f0;
 $wear-black: #c8a67f;
+$hover-blue: #211e5d;
 
 
 //MARGINS

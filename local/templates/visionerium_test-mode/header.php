@@ -13,6 +13,7 @@
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/css/owl.carousel.css');
     //Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/css/owl.carousel.min.css');
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/css/owl.theme.default.min.css');
+    //Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/dist/css/main.css');
 
     // JS
     //CJSCore::Init(array("jquery"));
@@ -38,6 +39,7 @@
     <script type='application/ld+json'>
         {"@context":"http://schema.org","@type":"Organization","url":"http://SITE.ru/","sameAs":[],"@id":"#organization","name":"Домен - Описание","logo":"http://SITE.ru/полный_путь_к_логотипу.png"}
     </script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 
 </head>
 
@@ -48,30 +50,29 @@
 <div class="row mx-0" style="z-index: 20000">
     <div class="col px-0">
         <div class="banner">
-            <div id='starmap' style="z-index: 20000">
+
             <div class="row header align-items-center mx-0">
                 <img class="logo-header" style="height: 50px; opacity: 0; margin-left: 80px;" src="<?= SITE_TEMPLATE_PATH ?>/img/logo.png" alt="">
                 <div class="col menu font-weight-bold">
-                    <ul class="nav justify-content-end text-uppercase">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Главная<div class="line"></div></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Расписание<div class="line"></div></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">О центре<div class="line"></div></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Специалисты<div class="line"></div></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Статьи<div class="line"></div></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Контакты<div class="line"></div></a>
-                        </li>
-                    </ul>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "top-menu",
+                        array(
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "CHILD_MENU_TYPE" => "left",
+                            "DELAY" => "N",
+                            "MAX_LEVEL" => "1",
+                            "MENU_CACHE_GET_VARS" => array(
+                            ),
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_TYPE" => "N",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "ROOT_MENU_TYPE" => "top",
+                            "USE_EXT" => "N",
+                            "COMPONENT_TEMPLATE" => "top-menu"
+                        ),
+                        false
+                    );?>
                 </div>
                 <div class="col-md-auto contacts">
                     <div class="social-icons text-left">
@@ -85,7 +86,7 @@
                 <div class="col-md-auto"><div style="width: 24px;"></div></div>
             </div>
 
-            </div>
+
         </div>
 
     </div>

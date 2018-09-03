@@ -15,58 +15,79 @@ $APPLICATION->SetTitle('Главная');
             <h2 class="pl-3"><img class="pr-4" src="<?=SITE_TEMPLATE_PATH?>/img/line-title.jpg"> Анонсы</h2>
         </div>
     </div>
-    <div class="row mx-0">
-        <div class="col-md-4 px-0 ann-item ">
-            <img class="w-100 ann-item-img" src="<?=SITE_TEMPLATE_PATH?>/img/seksualnaya-magiya.jpg">
-            <div class="row mx-0 ann-item-desc">
-                <div class="col-12 align-self-start ann-item-title"></div>
-                <div class="col-12 align-self-end pb-3 pl-5">
-                    <a href="#"><p class="ann-item-who">Велеслав и Витослава Черкасовы</p></a>
-                    <p class="font-lato">
-                        <i class="far fa-calendar-alt pr-3 grey"></i><span class="pr-4">16 августа</span>
-                        <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/price.png"><span class="pr-4">Бесплатно</span>
-                        <i class="far fa-clock pr-3 grey"></i><span>2 часа</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-0 ann-item ">
-            <img class="w-100 ann-item-img" src="<?=SITE_TEMPLATE_PATH?>/img/kak-nayti-dostoynogo-muzha.jpg">
-            <div class="row mx-0 ann-item-desc">
-                <div class="col-4 align-self-start ann-item-title"></div>
-                <div class="col-12 align-self-end pb-3 pl-5">
-                    <a href="#"><p class="ann-item-who">Александр Кичаев</p></a>
-                    <p class="font-lato">
-                        <i class="far fa-calendar-alt pr-3 grey"></i><span class="pr-4">16 сентября</span>
-                        <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/price.png"><span class="pr-4">900 <i class="fas fa-ruble-sign"></i></span>
-                        <i class="far fa-clock pr-3 grey"></i><span>2 часа</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 px-0 ann-item ">
-            <img class="w-100 ann-item-img" src="<?=SITE_TEMPLATE_PATH?>/img/putevoditel-po-stihiyam.jpg">
-            <div class="row mx-0 ann-item-desc">
-                <div class="col-4 align-self-start ann-item-title"></div>
-                <div class="col-12 align-self-end pb-3 pl-5">
-                    <a href="#"><p class="ann-item-who">Татьяна Дорожкина</p></a>
-                    <p class="font-lato">
-                        <i class="far fa-calendar-alt pr-3 grey"></i><span class="pr-4">21 августа</span>
-                        <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/price.png"><span class="pr-4">900 <i class="fas fa-ruble-sign"></i></span>
-                        <i class="far fa-clock pr-3 grey"></i><span>2 часа</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mx-0 ann-link" id="counts">
+    <?php
+    $APPLICATION->IncludeComponent("bitrix:news.list", "anonsy", Array(
+	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
+		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
+		"AJAX_MODE" => "N",	// Включить режим AJAX
+		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+		"AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+		"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
+		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
+		"DETAIL_URL" => "/#SECTION_CODE#/#ELEMENT_CODE#",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+		"DISPLAY_BOTTOM_PAGER" => "N",	// Выводить под списком
+		"DISPLAY_DATE" => "Y",	// Выводить дату элемента
+		"DISPLAY_NAME" => "Y",	// Выводить название элемента
+		"DISPLAY_PICTURE" => "Y",	// Выводить изображение для анонса
+		"DISPLAY_PREVIEW_TEXT" => "N",	// Выводить текст анонса
+		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
+		"FIELD_CODE" => array(	// Поля
+			0 => "",
+			1 => "",
+		),
+		"FILTER_NAME" => "",	// Фильтр
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",	// Скрывать ссылку, если нет детального описания
+		"IBLOCK_ID" => "2",	// Код информационного блока
+		"IBLOCK_TYPE" => "webinars",	// Тип информационного блока (используется только для проверки)
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",	// Включать инфоблок в цепочку навигации
+		"INCLUDE_SUBSECTIONS" => "Y",	// Показывать элементы подразделов раздела
+		"MESSAGE_404" => "",	// Сообщение для показа (по умолчанию из компонента)
+		"NEWS_COUNT" => "3",	// Количество новостей на странице
+		"PAGER_BASE_LINK" => "",
+		"PAGER_BASE_LINK_ENABLE" => "N",	// Включить обработку ссылок
+		"PAGER_DESC_NUMBERING" => "N",	// Использовать обратную навигацию
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
+		"PAGER_PARAMS_NAME" => "arrPager",
+		"PAGER_SHOW_ALL" => "Y",	// Показывать ссылку "Все"
+		"PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
+		"PAGER_TEMPLATE" => "",	// Шаблон постраничной навигации
+		"PAGER_TITLE" => "Вебинары",	// Название категорий
+		"PARENT_SECTION" => "",	// ID раздела
+		"PARENT_SECTION_CODE" => "",	// Код раздела
+		"PREVIEW_TRUNCATE_LEN" => "",	// Максимальная длина анонса для вывода (только для типа текст)
+		"PROPERTY_CODE" => array(	// Свойства
+			0 => "ATT_DATE",
+			1 => "ATT_PRICE",
+			2 => "ATT_DURABILITY",
+			3 => "",
+		),
+		"SET_BROWSER_TITLE" => "Y",	// Устанавливать заголовок окна браузера
+		"SET_LAST_MODIFIED" => "N",	// Устанавливать в заголовках ответа время модификации страницы
+		"SET_META_DESCRIPTION" => "Y",	// Устанавливать описание страницы
+		"SET_META_KEYWORDS" => "Y",	// Устанавливать ключевые слова страницы
+		"SET_STATUS_404" => "Y",	// Устанавливать статус 404
+		"SET_TITLE" => "Y",	// Устанавливать заголовок страницы
+		"SHOW_404" => "N",	// Показ специальной страницы
+		"SORT_BY1" => "ACTIVE_FROM",	// Поле для первой сортировки новостей
+		"SORT_BY2" => "SORT",	// Поле для второй сортировки новостей
+		"SORT_ORDER1" => "DESC",	// Направление для первой сортировки новостей
+		"SORT_ORDER2" => "ASC",	// Направление для второй сортировки новостей
+		"STRICT_SECTION_CHECK" => "N",	// Строгая проверка раздела для показа списка
+	),
+	false
+);?>
+    <div class="row mx-0 ann-link">
         <div class="col-md-12 pl-5 align-self-center">
             <a href=""><span class="ann-link-item w-auto text-uppercase font-weight-bold">Все анонсы</span></a>
         </div>
     </div>
 </section>
-<section class="about">
+<section class="about"  id="counts">
     <div class="row mx-0">
         <div class="col-md-12 about-title pl-5">
             <h2 class="pl-3"><img class="pr-4" src="<?=SITE_TEMPLATE_PATH?>/img/line-title.jpg"> О центре</h2>
@@ -108,98 +129,74 @@ $APPLICATION->SetTitle('Главная');
             <div class="col-md-12 couch-title">
                 <h2 class=""><img class="pr-4" src="<?=SITE_TEMPLATE_PATH?>/img/line-title.jpg"> Специалисты</h2>
             </div>
-            <div class="owl-carousel owl-theme">
-                <div class="item hover">
-                    <div class="couch-img">
-                        <img class="w-100" src="<?=SITE_TEMPLATE_PATH?>/img/petler.jpg" alt="">
-                    </div>
-                    <div class="social-link gradient">
-                        <div class="row couch-height" >
-                            <div class="col-12 soc soc-fb align-self-center py-0">
-                                <div class="my-3 couch-soc couch-soc-fb"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-in"><a href="#"><i class="fab fa-instagram"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-vk"><a href="#"><i class="fab fa-vk"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-yt"><a href="#"><i class="fab fa-youtube"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="couch-desc border-wear">
-                        <p class="couch-name p-4 font-weight-bold"><a href="#">Владислава Петлер</a><br><span class="couch-prof grey font-weight-light">Таролог</span></p>
-                    </div>
-                </div>
-                <div class="item hover ">
-                    <div class="couch-img">
-                        <img class="w-100" src="<?=SITE_TEMPLATE_PATH?>/img/platov.jpg" alt="">
-                    </div>
-                    <div class="social-link gradient">
-                        <div class="row">
-                            <div class="col-12 soc soc-fb align-self-center py-0">
-                                <div class="my-3 couch-soc couch-soc-fb"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-in"><a href="#"><i class="fab fa-instagram"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-vk"><a href="#"><i class="fab fa-vk"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-yt"><a href="#"><i class="fab fa-youtube"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="couch-desc border-wear">
-                        <p class="couch-name p-4 font-weight-bold"><a href="#">Антон Платов</a><br><span class="couch-prof grey font-weight-light">Рунолог</span></p>
-                    </div>
-                </div>
-                <div class="item hover">
-                    <div class="couch-img">
-                        <img class="w-100" src="<?=SITE_TEMPLATE_PATH?>/img/kichaev.jpg" alt="">
-                    </div>
-                    <div class="social-link gradient">
-                        <div class="row">
-                            <div class="col-12 soc soc-fb align-self-center py-0">
-                                <div class="my-3 couch-soc couch-soc-fb"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-in"><a href="#"><i class="fab fa-instagram"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-vk"><a href="#"><i class="fab fa-vk"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-yt"><a href="#"><i class="fab fa-youtube"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="couch-desc border-wear">
-                        <p class="couch-name p-4 font-weight-bold"><a href="#">Александр Кичаев</a><br><span class="couch-prof grey font-weight-light">Психолог</span></p>
-                    </div>
-                </div>
-                <div class="item hover">
-                    <div class="couch-img">
-                        <img class="w-100" src="<?=SITE_TEMPLATE_PATH?>/img/dorozhkina.jpg" alt="">
-                    </div>
-                    <div class="social-link gradient">
-                        <div class="row">
-                            <div class="col-12 soc soc-fb align-self-center py-0">
-                                <div class="my-3 couch-soc couch-soc-fb"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-in"><a href="#"><i class="fab fa-instagram"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-vk"><a href="#"><i class="fab fa-vk"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-yt"><a href="#"><i class="fab fa-youtube"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="couch-desc border-wear">
-                        <p class="couch-name p-4 font-weight-bold"><a href="#">Татьяна Дорожкина</a><br><span class="couch-prof grey font-weight-light">Астролог</span></p>
-                    </div>
-                </div>
-                <div class="item hover">
-                    <div class="couch-img">
-                        <img class="w-100" src="<?=SITE_TEMPLATE_PATH?>/img/dorozhkina.jpg" alt="">
-                    </div>
-                    <div class="social-link gradient">
-                        <div class="row">
-                            <div class="col-12 soc soc-fb align-self-center py-0">
-                                <div class="my-3 couch-soc couch-soc-fb"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-in"><a href="#"><i class="fab fa-instagram"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-vk"><a href="#"><i class="fab fa-vk"></i></a></div>
-                                <div class="my-3 couch-soc couch-soc-yt"><a href="#"><i class="fab fa-youtube"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="couch-desc border-wear">
-                        <p class="couch-name p-4 font-weight-bold"><a href="#">Татьяна Дорожкина</a><br><span class="couch-prof grey font-weight-light">Астролог</span></p>
-                    </div>
-                </div>
-            </div>
+
+
+                <?$APPLICATION->IncludeComponent("bitrix:news.list", "specialists",
+                    Array(
+                        "ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
+                        "ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
+                        "AJAX_MODE" => "N",	// Включить режим AJAX
+                        "AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+                        "AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+                        "AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+                        "AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+                        "CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
+                        "CACHE_GROUPS" => "Y",	// Учитывать права доступа
+                        "CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+                        "CACHE_TYPE" => "A",	// Тип кеширования
+                        "CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
+                        "DETAIL_URL" => "",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+                        "DISPLAY_BOTTOM_PAGER" => "N",	// Выводить под списком
+                        "DISPLAY_DATE" => "Y",	// Выводить дату элемента
+                        "DISPLAY_NAME" => "Y",	// Выводить название элемента
+                        "DISPLAY_PICTURE" => "Y",	// Выводить изображение для анонса
+                        "DISPLAY_PREVIEW_TEXT" => "Y",	// Выводить текст анонса
+                        "DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
+                        "FIELD_CODE" => array(	// Поля
+                            0 => "",
+                            1 => "",
+                        ),
+                        "FILTER_NAME" => "",	// Фильтр
+                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",	// Скрывать ссылку, если нет детального описания
+                        "IBLOCK_ID" => "1",	// Код информационного блока
+                        "IBLOCK_TYPE" => "specialists",	// Тип информационного блока (используется только для проверки)
+                        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",	// Включать инфоблок в цепочку навигации
+                        "INCLUDE_SUBSECTIONS" => "Y",	// Показывать элементы подразделов раздела
+                        "MESSAGE_404" => "",	// Сообщение для показа (по умолчанию из компонента)
+                        "NEWS_COUNT" => "20",	// Количество новостей на странице
+                        "PAGER_BASE_LINK_ENABLE" => "N",	// Включить обработку ссылок
+                        "PAGER_DESC_NUMBERING" => "N",	// Использовать обратную навигацию
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
+                        "PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
+                        "PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
+                        "PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
+                        "PAGER_TITLE" => "Новости",	// Название категорий
+                        "PARENT_SECTION" => "",	// ID раздела
+                        "PARENT_SECTION_CODE" => "",	// Код раздела
+                        "PREVIEW_TRUNCATE_LEN" => "",	// Максимальная длина анонса для вывода (только для типа текст)
+                        "PROPERTY_CODE" => array(	// Свойства
+                            0 => "ATT_FB_LINK",
+                            1 => "ATT_IN_LINK",
+                            2 => "ATT_YT_LINK",
+                            3 => "ATT_VK_LINK",
+                            4 => "ATT_PROFESSION",
+                            5 => "",
+                        ),
+                        "SET_BROWSER_TITLE" => "Y",	// Устанавливать заголовок окна браузера
+                        "SET_LAST_MODIFIED" => "N",	// Устанавливать в заголовках ответа время модификации страницы
+                        "SET_META_DESCRIPTION" => "Y",	// Устанавливать описание страницы
+                        "SET_META_KEYWORDS" => "Y",	// Устанавливать ключевые слова страницы
+                        "SET_STATUS_404" => "N",	// Устанавливать статус 404
+                        "SET_TITLE" => "Y",	// Устанавливать заголовок страницы
+                        "SHOW_404" => "N",	// Показ специальной страницы
+                        "SORT_BY1" => "ACTIVE_FROM",	// Поле для первой сортировки новостей
+                        "SORT_BY2" => "SORT",	// Поле для второй сортировки новостей
+                        "SORT_ORDER1" => "DESC",	// Направление для первой сортировки новостей
+                        "SORT_ORDER2" => "ASC",	// Направление для второй сортировки новостей
+                        "STRICT_SECTION_CHECK" => "N",	// Строгая проверка раздела для показа списка
+                    ),
+                    false
+                );?>
         </div>
     </div>
 </section>
@@ -210,34 +207,76 @@ $APPLICATION->SetTitle('Главная');
             <div class="col-md-12 couch-title">
                 <h2 class=""><img class="pr-4" src="<?=SITE_TEMPLATE_PATH?>/img/line-title.jpg"> Статьи</h2>
             </div>
-            <div class="col-md-4">
-                <img class="w-100" src="<?= SITE_TEMPLATE_PATH ?>/img/article1.jpg" alt="">
-                <p class="font-lato color-grey mt-4">
-                    <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/time-black.png"><span class="pr-5">08.08.2018</span>
-                    <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/who.png"><a href="#"><span class="hover-wear">Велеслав Черкасов</span></a>
-                </p>
-                <a href="#"><p class="mt-4 font-weight-bold text-uppercase color-black hover-wear articles-title">Можно ли разводиться согласно славянской традиции</p></a>
-            </div>
-            <div class="col-md-4">
-                <img class="w-100" src="<?= SITE_TEMPLATE_PATH ?>/img/article2.jpg" alt="">
-                <p class="font-lato color-grey mt-4">
-                    <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/time-black.png"><span class="pr-5">30.07.2018</span>
-                    <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/who.png"><a href="#"><span class="hover-wear">Бецалэль Ариэли</span></a>
-                </p>
-                <a href="#"><p class="mt-4 font-weight-bold text-uppercase color-black hover-wear articles-title">Можно ли изменить результат прогноза таро</p></a>
-            </div>
-            <div class="col-md-4">
-                <img class="w-100" src="<?= SITE_TEMPLATE_PATH ?>/img/article3.jpg" alt="">
-                <p class="font-lato color-grey mt-4">
-                    <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/time-black.png"><span class="pr-5">03.08.2018</span>
-                    <img class="pr-3" src="<?=SITE_TEMPLATE_PATH?>/img/who.png"><a href="#"><span class="hover-wear">Александр Кичаев</span></a>
-                </p>
-                <a href="#"><p class="mt-4 font-weight-bold text-uppercase color-black hover-wear articles-title">Как сделать мужчину рабом своих желаний</p></a>
-            </div>
+
+            <?$APPLICATION->IncludeComponent("bitrix:news.list", "stati",
+                array(
+                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                    "ADD_SECTIONS_CHAIN" => "Y",
+                    "AJAX_MODE" => "N",
+                    "AJAX_OPTION_ADDITIONAL" => "",
+                    "AJAX_OPTION_HISTORY" => "N",
+                    "AJAX_OPTION_JUMP" => "N",
+                    "AJAX_OPTION_STYLE" => "Y",
+                    "CACHE_FILTER" => "N",
+                    "CACHE_GROUPS" => "Y",
+                    "CACHE_TIME" => "36000000",
+                    "CACHE_TYPE" => "A",
+                    "CHECK_DATES" => "Y",
+                    "DETAIL_URL" => "",
+                    "DISPLAY_BOTTOM_PAGER" => "N",
+                    "DISPLAY_DATE" => "Y",
+                    "DISPLAY_NAME" => "Y",
+                    "DISPLAY_PICTURE" => "Y",
+                    "DISPLAY_PREVIEW_TEXT" => "Y",
+                    "DISPLAY_TOP_PAGER" => "N",
+                    "FIELD_CODE" => array(
+                        0 => "",
+                        1 => "",
+                    ),
+                    "FILTER_NAME" => "",
+                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                    "IBLOCK_ID" => "3",
+                    "IBLOCK_TYPE" => "articles",
+                    "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                    "INCLUDE_SUBSECTIONS" => "Y",
+                    "MESSAGE_404" => "",
+                    "NEWS_COUNT" => "3",
+                    "PAGER_BASE_LINK_ENABLE" => "N",
+                    "PAGER_DESC_NUMBERING" => "N",
+                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                    "PAGER_SHOW_ALL" => "N",
+                    "PAGER_SHOW_ALWAYS" => "N",
+                    "PAGER_TEMPLATE" => ".default",
+                    "PAGER_TITLE" => "Новости",
+                    "PARENT_SECTION" => "",
+                    "PARENT_SECTION_CODE" => "",
+                    "PREVIEW_TRUNCATE_LEN" => "",
+                    "PROPERTY_CODE" => array(
+                        0 => "",
+                        1 => "ATT_AUTHOR",
+                        2 => "",
+                    ),
+                    "SET_BROWSER_TITLE" => "Y",
+                    "SET_LAST_MODIFIED" => "N",
+                    "SET_META_DESCRIPTION" => "Y",
+                    "SET_META_KEYWORDS" => "Y",
+                    "SET_STATUS_404" => "Y",
+                    "SET_TITLE" => "Y",
+                    "SHOW_404" => "N",
+                    "SORT_BY1" => "ACTIVE_FROM",
+                    "SORT_BY2" => "SORT",
+                    "SORT_ORDER1" => "DESC",
+                    "SORT_ORDER2" => "ASC",
+                    "STRICT_SECTION_CHECK" => "N",
+                    "COMPONENT_TEMPLATE" => "stati"
+                ),
+                false
+            );?>
+
         </div>
         <div class="row mx-0 articles-link">
             <div class="col-md-12 pl-6 align-self-center mt-5">
-                <a href="#"><span class="ann-link-item w-auto text-uppercase font-weight-bold pl-2">Все анонсы</span></a>
+                <a href="/stati/"><span class="ann-link-item w-auto text-uppercase font-weight-bold pl-2">Все статьи</span></a>
             </div>
         </div>
     </div>
